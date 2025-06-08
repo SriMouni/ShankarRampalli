@@ -1,0 +1,1133 @@
+:root {
+  /* Jeff Koons: Moon Phases color palette */
+  --primary-color: #124e66;
+  --secondary-color: #212a31;
+  --accent-color: #748d92;
+  --dark-color: #2e3944;
+  --light-color: #d3d9d4;
+
+  /* Gradients using the new palette */
+  --gradient-primary: linear-gradient(135deg, #124e66 0%, #212a31 100%);
+  --gradient-secondary: linear-gradient(135deg, #748d92 0%, #124e66 100%);
+  --gradient-accent: linear-gradient(135deg, #124e66 0%, #748d92 100%);
+  --gradient-photo: linear-gradient(135deg, #124e66 0%, #212a31 100%);
+  --gradient-cricket: linear-gradient(135deg, #748d92 0%, #124e66 100%);
+
+  /* Award card gradients */
+  --gradient-award-1: linear-gradient(135deg, #124e66 0%, #212a31 100%);
+  --gradient-award-2: linear-gradient(135deg, #748d92 0%, #124e66 100%);
+  --gradient-award-3: linear-gradient(135deg, #212a31 0%, #2e3944 100%);
+  --gradient-award-4: linear-gradient(135deg, #748d92 0%, #d3d9d4 100%);
+  --gradient-award-5: linear-gradient(135deg, #124e66 0%, #748d92 100%);
+  --gradient-award-6: linear-gradient(135deg, #212a31 0%, #124e66 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(33, 42, 49, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(33, 42, 49, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(33, 42, 49, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(33, 42, 49, 0.1);
+
+  /* Success/warning/danger colors - keeping these for functional purposes */
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  overflow-x: hidden;
+  background-color: #fafafa;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Navigation */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: var(--dark-color) !important;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: var(--gradient-primary);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section.photo-hero {
+  background: var(--gradient-photo);
+}
+
+.hero-section.cricket-hero {
+  background: var(--gradient-cricket);
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+  background-size: cover;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.8;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.hero-buttons {
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.hero-image {
+  animation: fadeInRight 1s ease 0.8s both;
+}
+
+.profile-image {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 8px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-xl);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.btn-primary-custom {
+  background: var(--gradient-primary);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: var(--gradient-secondary);
+  color: white;
+}
+
+.btn-outline-custom {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: white;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-outline-custom:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-photo {
+  background: var(--gradient-photo);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-photo:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: var(--gradient-secondary);
+  color: white;
+}
+
+.btn-cricket {
+  background: var(--gradient-cricket);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-cricket:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: var(--gradient-accent);
+  color: white;
+}
+
+/* Stats Section */
+.stats-section {
+  background: var(--light-color);
+  padding: 60px 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+  border: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  color: var(--dark-color);
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Cards */
+.custom-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: white;
+}
+
+.custom-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.icon-strategy {
+  background: var(--gradient-primary);
+}
+
+.icon-leadership {
+  background: var(--gradient-secondary);
+}
+
+.icon-data {
+  background: var(--gradient-accent);
+}
+
+.icon-agile {
+  background: var(--gradient-primary);
+}
+
+.icon-photo {
+  background: var(--gradient-photo);
+}
+
+.icon-cricket {
+  background: var(--gradient-cricket);
+}
+
+/* Skills Section */
+.skills-section {
+  background: var(--light-color);
+}
+
+.skill-badge {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 5px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.skill-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Experience Cards */
+.experience-card {
+  border-left: 4px solid var(--primary-color);
+  background: white;
+  border-radius: 15px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gradient-primary);
+}
+
+.experience-card:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.badge-current {
+  background: var(--gradient-secondary);
+  color: white;
+  border: none;
+}
+
+.badge-award {
+  background: var(--gradient-accent);
+  color: white;
+  border: none;
+}
+
+/* Professional Timeline styles */
+.professional-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.professional-timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.professional-timeline .timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border-left: 4px solid var(--primary-color);
+}
+
+.professional-timeline .timeline-item:hover {
+  transform: translateX(15px);
+  box-shadow: var(--shadow-xl);
+}
+
+.professional-timeline .timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -47px;
+  top: 35px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 4px solid white;
+  box-shadow: 0 0 0 4px var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.professional-timeline .timeline-item:hover::before {
+  transform: scale(1.2);
+  background: var(--accent-color);
+  box-shadow: 0 0 0 4px var(--accent-color);
+}
+
+.timeline-date {
+  position: absolute;
+  left: -200px;
+  top: 35px;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-content {
+  position: relative;
+}
+
+.timeline-skills {
+  margin-top: 15px;
+}
+
+.timeline-skills .skill-badge {
+  background: var(--gradient-accent);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 3px 5px 3px 0;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.timeline-skills .skill-badge:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive timeline */
+@media (max-width: 992px) {
+  .professional-timeline {
+    padding-left: 30px;
+  }
+
+  .professional-timeline::before {
+    left: 15px;
+  }
+
+  .professional-timeline .timeline-item::before {
+    left: -37px;
+  }
+
+  .timeline-date {
+    position: static;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .professional-timeline {
+    padding-left: 20px;
+  }
+
+  .professional-timeline::before {
+    left: 10px;
+  }
+
+  .professional-timeline .timeline-item {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .professional-timeline .timeline-item::before {
+    left: -27px;
+    top: 25px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .professional-timeline .timeline-item:hover {
+    transform: translateX(10px);
+  }
+}
+
+/* Project Cards */
+.project-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.project-image {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.project-badge {
+  background: rgba(18, 78, 102, 0.1);
+  color: var(--primary-color);
+  border: 1px solid rgba(18, 78, 102, 0.2);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin: 3px;
+}
+
+/* Contact Section */
+.contact-section {
+  background: var(--light-color);
+}
+
+.contact-card {
+  background: white;
+  border-radius: 25px;
+  box-shadow: var(--shadow-lg);
+  border: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient-primary);
+}
+
+/* Footer */
+.footer {
+  background: var(--secondary-color);
+  color: white;
+  padding: 40px 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 80px 0;
+}
+
+/* Awards section */
+.award-card {
+  background-size: 200% 200%;
+  color: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.5s ease;
+  box-shadow: var(--shadow-md);
+  animation: gradientMove 10s ease infinite;
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  animation: gradientMove 5s ease infinite;
+}
+
+.award-card:nth-child(1) {
+  background: var(--gradient-award-1);
+}
+
+.award-card:nth-child(2) {
+  background: var(--gradient-award-2);
+}
+
+.award-card:nth-child(3) {
+  background: var(--gradient-award-3);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease;
+}
+
+.award-card:hover .award-icon {
+  transform: scale(1.1) rotate(360deg);
+  transition: transform 0.5s ease;
+}
+
+/* Photography Gallery */
+.gallery-section {
+  background: var(--light-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(18, 78, 102, 0.05)" points="0,0 1000,0 1000,1000"/></svg>');
+  background-size: cover;
+}
+
+.gallery-header {
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-item {
+  margin-bottom: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(33, 42, 49, 0.7) 0%, rgba(33, 42, 49, 0) 100%);
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.gallery-category {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Cricket Section */
+.cricket-section {
+  background: linear-gradient(135deg, rgba(116, 141, 146, 0.1) 0%, rgba(18, 78, 102, 0.1) 100%);
+  position: relative;
+}
+
+.cricket-card {
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.cricket-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cricket-img {
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.cricket-card:hover .cricket-img {
+  transform: scale(1.05);
+}
+
+/* Photography Services */
+.services-card {
+  border: none;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: white;
+  height: 100%;
+}
+
+.services-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+  background: var(--gradient-photo);
+}
+
+/* Cricket specific styles */
+.cricket-stats-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-left: 4px solid var(--primary-color);
+}
+
+.cricket-stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cricket-achievement-card {
+  color: white;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cricket-achievement-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cricket-achievement-card:hover::before {
+  opacity: 1;
+}
+
+.cricket-achievement-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(33, 42, 49, 0.2);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* Timeline styles for cricket career */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient-primary);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 25px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+/* Update badge colors */
+.badge.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.badge.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+/* Update button outline colors */
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Update text-primary color */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* Cricket achievement cards with different gradients */
+.cricket-achievement-card:nth-child(1) {
+  background: var(--gradient-award-1);
+}
+
+.cricket-achievement-card:nth-child(2) {
+  background: var(--gradient-award-2);
+}
+
+.cricket-achievement-card:nth-child(3) {
+  background: var(--gradient-award-3);
+}
+
+.cricket-achievement-card:nth-child(4) {
+  background: var(--gradient-award-4);
+}
+
+.cricket-achievement-card:nth-child(5) {
+  background: var(--gradient-award-5);
+}
+
+.cricket-achievement-card:nth-child(6) {
+  background: var(--gradient-award-6);
+}
+
+/* Form controls styling */
+.form-control {
+  border: 1px solid rgba(18, 78, 102, 0.2);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  background-color: white;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(18, 78, 102, 0.25);
+}
+
+.form-select {
+  border: 1px solid rgba(18, 78, 102, 0.2);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  background-color: white;
+}
+
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(18, 78, 102, 0.25);
+}
+
+/* Text muted color update */
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Button filter styles for gallery */
+.btn-group .btn {
+  border-color: var(--primary-color);
+  color: var(--dark-color);
+  background-color: transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-group .btn:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-group .btn.active {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: white !important;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-group .btn:focus {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(18, 78, 102, 0.25);
+}
+
+.btn-group .btn:active {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+/* Override Bootstrap's default button styles */
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-primary:focus {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(18, 78, 102, 0.25);
+}
+
+.btn-outline-primary:active,
+.btn-outline-primary.active {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+/* Additional button states for consistency */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:focus {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(18, 78, 102, 0.25);
+}
+
+.btn-primary:active,
+.btn-primary.active {
+  background-color: var(--secondary-color) !important;
+  border-color: var(--secondary-color) !important;
+}
